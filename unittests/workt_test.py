@@ -82,6 +82,8 @@ class TestUsers(unittest.TestCase):
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
         self.driver.get("https://www.saucedemo.com")
         self.Main_page_logic = common_logic.Main_Page(self.driver)
+        self.Cart_page_logic = common_logic.Cart_Page(self.driver)
+        self.Checkout_data_page_logic = common_logic.Checkout_Data_Page(self.driver)
     
     def test_locked_out_user_can_not_log_in(self):
         Login_page_logic = common_logic.Login_Page("locked_out_user", "secret_sauce", self.driver)
@@ -103,6 +105,14 @@ class TestUsers(unittest.TestCase):
         cart_pos = self.Main_page_logic.cart_at_position()
 
         self.assertNotEqual(cart_expected_pos,cart_pos)
+
+    def test_error_user_can_not_write_last_name(self):
+        Login_page_logic = common_logic.Login_Page("error_user", "secret_sauce", self.driver)
+        Login_page_logic.login()
+        self.Cart_page_logic.go_to_cart()
+        self.Checkout_data_page_logic.go_to_checkout_data()
+        name = self.Checkout_data_page_logic.user_last_name_write_in("Orsi")
+        self.assertTrue(name == "")
 
     
 

@@ -67,7 +67,7 @@ class Main_Page():
     
 class Cart_Page():
     """
-    Place for methods on the checkout page.
+    Place for methods on the cart page.
     """
 
     def __init__(self, driver):
@@ -78,7 +78,7 @@ class Cart_Page():
 
 class Checkout_Data_Page():
     """
-    Place for methods on the checkout page.
+    Place for methods on the checkout data page.
     """
 
     def __init__(self, driver):
@@ -91,10 +91,15 @@ class Checkout_Data_Page():
         first_name_field = self.driver.find_element(*Check_out_informationLocators.FIRST_NAME_FIELD)
         first_name_field.send_keys(first_name)
         return first_name_field.get_attribute("value")
+    
+    def user_last_name_write_in(self,first_name):
+        first_name_field = self.driver.find_element(*Check_out_informationLocators.LAST_NAME_FIELD)
+        first_name_field.send_keys(first_name)
+        return first_name_field.get_attribute("value")
 
 class Checkout_OverView_Page():
     """
-    Place for methods on the checkout page.
+    Place for methods on the checkout overview page.
     """
 
     def __init__(self, driver):

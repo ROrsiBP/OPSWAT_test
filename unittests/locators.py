@@ -19,6 +19,7 @@ class MainPageLocators(object):
     PICS = (By.CLASS_NAME, "inventory_item")
 
 class CartLocators(object):
+    """All cart page locators are here."""
     CHECKOUT_BUTTON = (By.ID, "checkout")
 
 class Check_out_informationLocators():
