@@ -12,6 +12,8 @@ I tought that I have 2 routes to separate the tests, by page or by functionality
 THIS IS NOT MY FINAL TAKE REGARDING THE TESTS. JUST A BASIC QUICK BRAINSTORM.
 I am confident I have left out some improtant tests, these I would add later as I work on the project.
 I am confident I can write an even better and cleaner code with digging deeper into selenium design patterns.
+I am confident some tests should be written differently, and some might needs to be a little more detailed 
+	(example: Login test should have separate 3 checks inside, one for username, passw, and login can be clicked)
 
 #Fundamental/Technical tests - tests which are testing the basic requirements to be able to run the page/IDE
 
