@@ -15,7 +15,11 @@ class MainPageLocators(object):
     REMOVE_BUTTON = (By.ID, "remove-sauce-labs-backpack")
     SHOPPING_CART_BADGE = (By.CLASS_NAME, "shopping_cart_badge")
     SHOPPING_CART = (By.XPATH, '//*[@id="shopping_cart_container"]')
+    SHOPPING_CART_LINK = (By.CLASS_NAME, "shopping_cart_link")
     PICS = (By.CLASS_NAME, "inventory_item")
+
+class CartLocators(object):
+    CHECKOUT_BUTTON = (By.ID, "checkout")
 
 class Check_out_informationLocators():
     """All check out infrormation page locators are here."""

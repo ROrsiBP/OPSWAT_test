@@ -2,6 +2,8 @@ from selenium.webdriver.common.keys import Keys
 import errors
 from locators import MainPageLocators
 from locators import LoginPageLocators
+from locators import Check_out_informationLocators
+from locators import CartLocators
 
 class Login_Page():
     """
@@ -63,13 +65,32 @@ class Main_Page():
         cart_right= cart.value_of_css_property('right')
         return [cart_height,cart_width,cart_top,cart_right]
     
-class Checkout_Page():
+class Cart_Page():
     """
     Place for methods on the checkout page.
     """
 
     def __init__(self, driver):
         self.driver = driver
+    
+    def go_to_cart(self):
+        self.driver.find_element(*MainPageLocators.SHOPPING_CART_LINK).click()
+
+class Checkout_Data_Page():
+    """
+    Place for methods on the checkout page.
+    """
+
+    def __init__(self, driver):
+        self.driver = driver
+
+    def go_to_checkout_data(self):
+        self.driver.find_element(*CartLocators.CHECKOUT_BUTTON).click()
+    
+    def user_first_name_write_in(self,first_name):
+        first_name_field = self.driver.find_element(*Check_out_informationLocators.FIRST_NAME_FIELD)
+        first_name_field.send_keys(first_name)
+        return first_name_field.get_attribute("value")
 
 class Checkout_OverView_Page():
     """

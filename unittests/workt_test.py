@@ -27,6 +27,8 @@ class TestBasicMethods(unittest.TestCase):
         self.driver.get("https://www.saucedemo.com")
         self.Login_page_logic = common_logic.Login_Page("standard_user", "secret_sauce", self.driver)
         self.Main_page_logic = common_logic.Main_Page(self.driver)
+        self.Cart_page_logic = common_logic.Cart_Page(self.driver)
+        self.Checkout_data_page_logic = common_logic.Checkout_Data_Page(self.driver)
 
     def test_login(self):
         is_success = self.Login_page_logic.login()
@@ -42,6 +44,18 @@ class TestBasicMethods(unittest.TestCase):
         self.Main_page_logic.one_product_to_chart()
         add_to_cart_button_text = self.Main_page_logic.remove_one_product_from_chart()
         self.assertEqual(add_to_cart_button_text,"Add to cart")
+
+    def test_can_to_to_cart(self):
+        self.Login_page_logic.login()
+        self.Cart_page_logic.go_to_cart()
+        self.assertTrue(self.driver.current_url == "https://www.saucedemo.com/cart.html")
+
+    def test_can_write_in_first_name_checkout(self):
+        self.Login_page_logic.login()
+        self.Cart_page_logic.go_to_cart()
+        self.Checkout_data_page_logic.go_to_checkout_data()
+        name = self.Checkout_data_page_logic.user_first_name_write_in("Ruzsin")
+        self.assertTrue(name == "Ruzsin")
 
 class TestVisuals(unittest.TestCase):
 
