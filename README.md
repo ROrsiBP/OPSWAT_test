@@ -1,19 +1,12 @@
-# OPSWAT_test
-Swaglabs Tests - 2023-12-03
-
 Technologies: Selenium, Python - Visual Studio  
 Needed: python min. 3.9.13, selenium 4.15.2, webdriver-manager 4.0.1, Google Chrome  
 I used visual studio's test explorer to run my tests. At the time of sending all tests worked as intended.  
 
 Idea: I have users that can do different things on the site.  
-I will do test suits for all the functions using standars user, which can be automated later using Selenium IDE.  
+I will do test suits for all the functions using standars user.
 I tought that I have 2 routes to separate the tests, by page or by functionality. I decieded I will do it by func.  
 
 THIS IS NOT MY FINAL TAKE REGARDING THE TESTS. JUST A BASIC QUICK BRAINSTORM.  
-I am confident I have left out some improtant tests, these I would add later as I work on the project.  
-I am confident I can write an even better and cleaner code with digging deeper into selenium design patterns.  
-I am confident some tests should be written differently, and some might needs to be a little more detailed  
-	(example: Login test should have separate 3 checks inside, one for username, passw, and login can be clicked)  
 
 #Fundamental/Technical tests - tests which are testing the basic requirements to be able to run the page/IDE
 
